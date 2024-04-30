@@ -1,0 +1,28 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 30px;
+    box-shadow: 0 3px 15px -2px #000;
+    margin-bottom: 1px;
+    background: white;
+}
+.logoContainer{
+    display: flex;
+}
+.navLogo {
+    height: 70px;
+    border-radius: 50%;
+}
+
+.navProfile {
+    height: 60px;
+    border-radius: 50%;
+}
+
+.navbar p{
+    padding-left: 10px;
+    color: #171717;
+    font-size: 22px;
+    font-weight: 600;
+}
