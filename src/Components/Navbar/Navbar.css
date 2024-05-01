@@ -26,3 +26,18 @@
     font-size: 22px;
     font-weight: 600;
 }
+
+@media(max-width:800px){
+    .navbar{
+        padding: 15px 30px;
+    }
+    .navLogo{
+        height: 50px;
+    }
+    .navbar p{
+        font-size: 15px;
+    }
+    .navProfile {
+        height: 40px;
+    }
+}
