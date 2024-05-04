@@ -5,34 +5,49 @@ import UploadArea from "../../assets/upload_area.svg";
 const AddProduct = () => {
 
   const [image, setImage] = useState(false);
+  const [productDetail, setProductDetails] = useState({
+    name: "",
+    images: "",
+    category: "Women",
+    newPrice: "",
+    oldPrice: ""
+  });
 
   const imageHandler = (e) => {
     setImage(e.target.files[0])
+  }
+
+  const changeHandler = (e) => {
+    setProductDetails({...productDetail, [e.target.name]: e.target.value})
+  }
+
+  const addProductHandler = () => {
+    console.log(productDetail)
   }
 
   return (
     <div className="addProduct">
       <div className="addProductField">
         <p>Product Title</p>
-        <input type="text" name="name" placeholder="Type Here..." />
+        <input value={productDetail.name} onChange={changeHandler} type="text" name="name" placeholder="Type Here..." />
       </div>
 
       <div className="addProductPrice">
         <div className="addProductField">
           <p>Price</p>
-          <input type="text" name="name" placeholder="Type Here..." />
+          <input value={productDetail.oldPrice} onChange={changeHandler} type="text" name="oldPrice" placeholder="Type Here..." />
         </div>
 
         <div className="addProductField">
           <p> Offer Price</p>
-          <input type="text" name="name" placeholder="Type Here..." />
+          <input value={productDetail.newPrice} onChange={changeHandler} type="text" name="newPrice" placeholder="Type Here..." />
         </div>
 
       </div>
 
       <div className="addProductField">
         <p>Product Category</p>
-        <select name="Category" className="addProductSelector">
+        <select value={productDetail.category} onChange={changeHandler} name="category" className="addProductSelector">
           <option value="Women">Women</option>
           <option value="Men">Men</option>
           <option value="Kid">Kid</option>
@@ -45,7 +60,8 @@ const AddProduct = () => {
         </label>
         <input type="file" onChange={imageHandler} name="image" id="fileInput" hidden />
       </div>
-      <button className="addProductBtn">ADD</button>
+
+      <button onClick={() => {addProductHandler()}} className="addProductBtn">ADD</button>
 
     </div>
   );
