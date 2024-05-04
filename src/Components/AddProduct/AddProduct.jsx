@@ -21,8 +21,25 @@ const AddProduct = () => {
     setProductDetails({...productDetail, [e.target.name]: e.target.value})
   }
 
-  const addProductHandler = () => {
-    console.log(productDetail)
+  const addProductHandler = async () => {
+    // console.log(productDetail)
+    let responceData;
+    let product = productDetail;
+    let formData = new FormData();
+    formData.append('product', image);
+    await fetch('https://nubifashon-backend.onrender.com/api/v1/upload/addProduct', {
+      method: 'POST', 
+      headers: {
+        Accept: 'application/json'
+      },
+      withCredentials: true,
+      body: formData
+    }).then((resp) => resp.json()).then((data) => responceData = data )
+
+    if(responceData.success){
+      product.images = responceData.image_url
+      console.log(product)
+    }
   }
 
   return (
