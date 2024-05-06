@@ -22,12 +22,11 @@ const AddProduct = () => {
   }
 
   const addProductHandler = async () => {
-    // console.log(productDetail)
     let responceData;
     let product = productDetail;
     let formData = new FormData();
-    formData.append('product', image);
-    await fetch('https://nubifashon-backend.onrender.com/api/v1/upload/addProduct', {
+    formData.append('images', image);
+    await fetch('https://nubifashon-backend.onrender.com/api/v1/upload/product', {
       method: 'POST', 
       headers: {
         Accept: 'application/json'
@@ -35,11 +34,12 @@ const AddProduct = () => {
       withCredentials: true,
       body: formData
     }).then((resp) => resp.json()).then((data) => responceData = data )
+    console.log(responceData)
 
-    if(responceData.success){
-      product.images = responceData.image_url
-      console.log(product)
-    }
+    // if(responceData.success){
+    //   product.images = responceData.image_url
+    //   console.log(product)
+    // }
   }
 
   return (
