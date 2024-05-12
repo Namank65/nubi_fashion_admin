@@ -15,7 +15,4 @@ const Admin = () => {
     </div>;
 };
 
-//please remove this comment if needed
-
-
 export default Admin;
