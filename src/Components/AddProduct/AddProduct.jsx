@@ -27,9 +27,10 @@ const AddProduct = () => {
     let formData = new FormData();
     formData.append('images', image);
     await fetch('https://nubifashon-backend.onrender.com/api/v1/upload/product', {
-      method: 'POST', 
+      method: 'POST',
       headers: {
-        Accept: 'application/json'
+        'Authorization': 'Bearer ${token}',
+        'Content-Type': 'application/json'
       },
       withCredentials: true,
       body: formData
