@@ -37,21 +37,20 @@ const AddProduct = () => {
     }).then((resp) => resp.json()).then((data) => responceData = data )
 
     if(responceData.success){
-      product.images = responceData.data
+      product.images = responceData.data.images
       await fetch('https://nubifashon-backend.onrender.com/api/v1/upload/addProduct', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
           'content-type': 'application/json'
         },
-        withCredentials: true,
         body: JSON.stringify(product)
       }).then((resp) => resp.json()).then((data) => {
+        console.log(data)
         data.success? alert("Product Added") : alert("Failed")
       })
     }
     
-    console.log(product)
   }
 
   return (
