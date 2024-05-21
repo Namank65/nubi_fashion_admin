@@ -26,7 +26,6 @@ const AddProduct = () => {
     let product = productDetail;
     let formData = new FormData();
     formData.append('images', image);
-    console.log(image)
     await fetch('https://nubifashon-backend.onrender.com/api/v1/upload/product', {
       method: 'POST',
       headers: { 
@@ -46,7 +45,6 @@ const AddProduct = () => {
         },
         body: JSON.stringify(product)
       }).then((resp) => resp.json()).then((data) => {
-        console.log(data)
         data.success? alert("Product Added") : alert("Failed")
       })
     }

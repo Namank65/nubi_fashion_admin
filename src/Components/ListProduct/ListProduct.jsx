@@ -20,14 +20,14 @@ const ListProduct = () => {
 
   const removeProduct = async (id) => {
     await fetch('https://nubifashon-backend.onrender.com/api/v1/upload/removeProduct', {
-      method: POST,
+      method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-type': 'application/json'
       },
       body: JSON.stringify({id:id})
     })
-    await fetchInfo
+    await fetchInfo();
   }
 
   return (
