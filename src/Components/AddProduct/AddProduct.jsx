@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./AddProduct.css";
 import UploadArea from "../../assets/upload_area.svg";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddProduct = () => {
 
@@ -45,7 +46,7 @@ const AddProduct = () => {
         },
         body: JSON.stringify(product)
       }).then((resp) => resp.json()).then((data) => {
-        data.success? alert("Product Added") : alert("Failed")
+        data.success? toast.success('Product Added Sucessfully') : toast.error('Failed To Add New Product')
       })
     }
     

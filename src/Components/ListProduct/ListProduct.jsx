@@ -12,8 +12,6 @@ const ListProduct = () => {
     
   }
 
-  
-
   useEffect(() => {
     fetchInfo();
   },[])
@@ -48,8 +46,8 @@ const ListProduct = () => {
           <div key={index} className='listproduct-formate-main listproduct-formate'>
             <img src={product.images} alt="ProductIcon" className='listProduct-icon' />
             <p>{product.name}</p>
-            <p>{product.oldPrice}</p>
-            <p>{product.newPrice}</p>
+            <p>${product.oldPrice}</p>
+            <p>${product.newPrice}</p>
             <p>{product.category}</p>
             <img src={cross_icon} onClick={() => removeProduct(product.id)} alt="removeIcon" className='listProduct-removeIcon' />
           </div>
