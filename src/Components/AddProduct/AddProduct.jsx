@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AddProduct.css";
 import UploadArea from "../../assets/upload_area.svg";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const AddProduct = () => {
 
