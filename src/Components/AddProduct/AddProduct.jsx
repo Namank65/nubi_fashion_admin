@@ -9,7 +9,7 @@ const AddProduct = () => {
   const [productDetail, setProductDetails] = useState({
     name: "",
     images: "",
-    category: "Women",
+    category: "Women", //i dont kmow about this i am still trying to figerout
     newPrice: "",
     oldPrice: ""
   });
