@@ -11,7 +11,8 @@ const AddProduct = () => {
     images: "",
     category: "Women", //i dont kmow about this i am still trying to figerout
     newPrice: "",
-    oldPrice: ""
+    oldPrice: "",
+    stock: 0
   });
 
   const imageHandler = (e) => {
@@ -69,6 +70,11 @@ const AddProduct = () => {
           <p> Offer Price</p>
           <input value={productDetail.newPrice} onChange={changeHandler} type="text" name="newPrice" placeholder="Type Here..." />
         </div>
+        
+        {/* <div className="addProductField">
+          <p>Stock</p>
+          <input value={productDetail.newPrice} onChange={changeHandler} type="text" name="newPrice" placeholder="Type Here..." />
+        </div> */}
 
       </div>
 
