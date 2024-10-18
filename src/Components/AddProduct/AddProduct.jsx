@@ -9,7 +9,7 @@ const AddProduct = () => {
   const [productDetail, setProductDetails] = useState({
     name: "",
     images: "",
-    category: "Women", //i dont kmow about this i am still trying to figerout
+    category: "Women",
     newPrice: "",
     oldPrice: "",
     stock: 0
@@ -71,10 +71,10 @@ const AddProduct = () => {
           <input value={productDetail.newPrice} onChange={changeHandler} type="text" name="newPrice" placeholder="Type Here..." />
         </div>
         
-        {/* <div className="addProductField">
+         <div className="addProductField">
           <p>Stock</p>
-          <input value={productDetail.newPrice} onChange={changeHandler} type="text" name="newPrice" placeholder="Type Here..." />
-        </div> */}
+          <input value={productDetail.stock} onChange={changeHandler} type="number" name="stock" placeholder="Type Here..." />
+        </div> 
 
       </div>
 
@@ -95,7 +95,6 @@ const AddProduct = () => {
       </div>
 
       <button onClick={() => {addProductHandler()}} className="addProductBtn">ADD</button>
-
     </div>
   );
 };
