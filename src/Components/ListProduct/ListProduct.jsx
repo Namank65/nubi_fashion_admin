@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ListProduct.css";
 import cross_icon from "../../assets/cross_icon.png";
+import toast from "react-hot-toast";
 
 const ListProduct = () => {
   const [allProducts, setallProducts] = useState([]);
@@ -29,8 +30,9 @@ const ListProduct = () => {
           "Content-type": "application/json",
         },
         body: JSON.stringify({ id: id }),
-      }
-    );
+      }).then((resp) => resp.json()).then((data) => {
+        data.success? toast.success('Removed Sucessfully') : toast.error('Failed To Remove Product')
+      });
     await fetchInfo();
   };
 
