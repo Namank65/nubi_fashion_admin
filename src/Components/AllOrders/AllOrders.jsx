@@ -8,15 +8,15 @@ const AllOrders = () => {
       fetch("https://nubifashon-backend.onrender.com/api/v1/order/allOrders")
         .then((resp) => resp.json())
         .then((data) => {
-          setallOrders(data?.data);
+          setallOrders(data?.data.map((e) => e.orderItems))
         });
     }, []);
 
-    console.log(allOrders);
+    // console.log(...allOrders);
 
   return (
     <div className="CartItems">
-      {allOrders > 0 ? (
+      {allOrders ? (
         <div className="cartItems-format-main">
           <p>Products</p>
           <p>Title</p>
@@ -32,7 +32,8 @@ const AllOrders = () => {
 
       <hr />
       {allOrders?.map((e, index) => {
-        if (allOrders > 0) {
+        console.log(e)
+        if (true) {
           return (
             <div key={index}>
               <div className="cartItems-Formate cartItems-format-main">
@@ -43,16 +44,16 @@ const AllOrders = () => {
                 />
                 <p>{e.name}</p>
                 <p>₹{e.newPrice}</p>
-                <p>{cartItems[e.id].productSize}</p>
+                {/* <p>{cartItems[e.id].productSize}</p> */}
                 <div className="quantitySection">
                   <button className="cartItems-quantity">
-                    {cartItems[e.id].quantity}
+                    {/* {cartItems[e.id].quantity} */}
                   </button>
                 </div>
-                <p>₹{e.newPrice * cartItems[e.id].quantity}</p>
+                {/* <p>₹{e.newPrice * cartItems[e.id].quantity}</p> */}
                 <img
                   className="cartItems-remove-icon"
-                  src={remove_icon}
+                  // src={remove_icon}
                   onClick={() => {
                     // removefromCart(e.id);
                   }}
