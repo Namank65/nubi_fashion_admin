@@ -18,6 +18,10 @@
     font-size: 18px;
     font-weight: 600;
   }
+  .main {
+    max-height: 50%;
+    overflow-y: auto;
+  }
   
   .cartItems-Formate {
     font-size: 17px;
@@ -43,12 +47,10 @@
   }
   .quantitySection{
     display: flex;
-    /* flex-direction: column; */
   }
   
   .QuantityBtn{
     width: 30px;
-    /* margin-right: 0px; */
   }
   
   .cartItems-down {
