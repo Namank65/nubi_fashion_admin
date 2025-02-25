@@ -1,20 +1,44 @@
 import "./AllOrders.css";
 import React, { useEffect, useState } from "react";
 import cross_icon from "../../assets/cross_icon.png";
+import toast from "react-hot-toast";
+import Order from "./Order";
 
 const AllOrders = () => {
   const [allOrders, setallOrders] = useState([]);
 
+
+  const Orders = async() => {
+   await fetch("https://nubifashon-backend.onrender.com/api/v1/order/allOrders")
+    .then((resp) => resp.json())
+    .then((data) => setallOrders(data?.data))
+    // .then((e) => setallOrders(e))
+    // .then((data) => data?.data.map((e) => e.orderItems))
+    // .then((e) => e.flat())
+    // .then((e) => setallOrders(e));
+  }
+
   useEffect(() => {
-    fetch("https://nubifashon-backend.onrender.com/api/v1/order/allOrders")
-      .then((resp) => resp.json())
-      .then((data) => data?.data.map((e) => e.orderItems))
-      .then((e) => e.flat())
-      .then((e) => setallOrders(e));
+    Orders()
   }, []);
 
-  console.log(allOrders);
 
+  const removeOrder = async (ProductId) => {
+    console.log(ProductId);
+    
+    await fetch(
+      "https://nubifashon-backend.onrender.com/api/v1/order/removeOrder",
+      {
+        method: "POST",
+        body: JSON.stringify({ ProductId}),
+      }).then((resp) => resp.json()).then((data) => {
+        data.success? toast.success('Order Removed Sucessfully') : toast.error('Failed To Remove Product')
+      });
+      Orders()
+  };
+
+  console.log(allOrders);
+  
   return (
     <div className="CartItems">
       <h1>All Orders By Your Customers</h1>
@@ -33,34 +57,16 @@ const AllOrders = () => {
 <div className="main">
       <hr />
       {allOrders?.map((e, index) => {
-        if (allOrders) {
-          return (
-            <div key={index}> 
-              <div className="cartItems-Formate cartItems-format-main">
-                <img
-                  src={e.images}
-                  alt="cartIcon"
-                  className="cartIcon-product-icon"
-                />
-                <p>{e.name}</p>
-                <p>₹{e.newPrice}</p>
-                <p>{e.size}</p>
-                <div className="quantitySection">
-                  <button className="cartItems-quantity">{e.quantity}</button>
-                </div>
-                <img
-                  className="cartItems-remove-icon"
-                  src={cross_icon}
-                  onClick={() => {
-                    // removefromCart(e.id);
-                  }}
-                  alt="removeIcon"
-                />
-              </div>
-              <hr />
-            </div>
-          );
-        }
+console.log(e);
+
+return (
+  <div key={index}>
+    <h4>{e.user}</h4>
+    {e.orderItems.map((e) => <Order e={e} key={e.ProductId}/>
+    )}
+  </div>
+)
+
       })}
       </div>
     </div>

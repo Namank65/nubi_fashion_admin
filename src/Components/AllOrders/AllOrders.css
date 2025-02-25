@@ -1,5 +1,9 @@
 .CartItems {
-    margin: 100px 170px;
+    margin: 30px 50px;
+    padding: 30px 20px;
+    background-color: white;
+    border-radius: 10px;
+    height: 100vh;
   }
   
   .CartItems hr {
@@ -19,7 +23,7 @@
     font-weight: 600;
   }
   .main {
-    max-height: 50%;
+    max-height: 70%;
     overflow-y: auto;
   }
   
