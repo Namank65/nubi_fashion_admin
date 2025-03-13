@@ -1,10 +1,8 @@
 import React from 'react'
 import cross_icon from "../../assets/cross_icon.png";
-const Order = ({e,index}) => {
-    console.log(e);
-    
+const Order = ({e, unique}) => {
     return (
-        <div key={index}> 
+        <div key={unique}> 
           <div className="cartItems-Formate cartItems-format-main">
             <img
               src={e.images}
