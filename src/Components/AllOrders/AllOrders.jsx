@@ -11,10 +11,10 @@ const AllOrders = () => {
   const Orders = async() => {
    await fetch("https://nubifashon-backend.onrender.com/api/v1/order/allOrders")
     .then((resp) => resp.json())
-    .then((data) => setallOrders(data?.data))
-    // .then((e) => setallOrders(e))
-    // .then((data) => data?.data.map((e) => e.orderItems))
-    // .then((e) => e.flat())
+    .then((data) => data?.data.map((e) => e.orderItems))
+    .then((e) => e.flat())
+    .then((e) => setallOrders(e))
+    // .then((data) => setallOrders(data?.data))
     // .then((e) => setallOrders(e));
   }
 
