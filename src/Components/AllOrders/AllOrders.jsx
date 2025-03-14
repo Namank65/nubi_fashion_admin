@@ -56,14 +56,11 @@ const AllOrders = () => {
       <div className="main">
         <hr />
         {allOrders?.map((e, index) => {
-          console.log(e);
-          console.log(Date.now());
-          
           return (
-            <div key={index}>
+            <div key={e._id}>
               <h4>{e.user.userName}</h4>
               {e.orderItems.map((e) => (
-                <Order e={e} unique={index} />
+                <Order key={e._id} e={e} unique={e.ProductId} />
               ))}
             </div>
           )
