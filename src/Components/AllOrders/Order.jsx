@@ -1,5 +1,4 @@
 import React from 'react'
-import cross_icon from "../../assets/cross_icon.png";
 const Order = ({e, unique}) => {
     return (
         <div key={unique}> 
@@ -15,14 +14,6 @@ const Order = ({e, unique}) => {
             <div className="quantitySection">
               <button className="cartItems-quantity">{e.quantity}</button>
             </div>
-            <img
-              className="cartItems-remove-icon"
-              src={cross_icon}
-              onClick={() => {
-                // removeOrder(e._id);
-              }}
-              alt="removeIcon"
-            />
           </div>
           <hr />
         </div>
