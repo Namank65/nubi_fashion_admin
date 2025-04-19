@@ -24,14 +24,14 @@ const ListProduct = () => {
     await fetch(
       "https://nubifashon-backend.onrender.com/api/v1/upload/removeProduct",
       {
-        method: "POST",
+        method: "DELETE",
         headers: {
           Accept: "application/json",
           "Content-type": "application/json",
         },
         body: JSON.stringify({ id: id }),
       }).then((resp) => resp.json()).then((data) => {
-        data.success? toast.success('Removed Sucessfully') : toast.error('Failed To Remove Product')
+        data.success? toast.success('Item Removed Sucessfully') : toast.error('Failed To Remove Product')
       });
     await fetchInfo();
   };
